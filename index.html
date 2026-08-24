@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portofolio Saya</title>
+    
+    <!-- Mengambil Font dari Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600&family=Poppins:wght@500;700&display=swap" rel="stylesheet">
+
+    <style>
+        /* =========================================
+           1. PENGATURAN DASAR & WARNA (CSS VARIABLES)
+           ========================================= */
+        :root {
+            --merah-utama: #930500;
+            --biru-muda: #95BBEA;
+            --putih: #ffffff;
+            --teks-gelap: #333333;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html{
+            scroll-behavior: smooth;
+            scroll-padding-top: 70px    
+        
+        }
+
+
+        body {
+            font-family: 'Open Sans', sans-serif;
+            color: var(--teks-gelap);
+            background-color: #f9fbfd; /* Sedikit kebiruan agar menyatu dengan tema */
+            line-height: 1.6;
+        }
+
+        h1, h2, h3 {
+            font-family: 'Poppins', sans-serif;
+            color: var(--merah-utama);
+        }
+
+        /* =========================================
+           2. NAVIGASI (MENU ATAS)
+           ========================================= */
+        nav {
+            background-color: var(--merah-utama);
+            padding: 15px 50px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        nav .logo {
+            color: var(--putih);
+            font-size: 24px;
+            font-weight: 700;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            gap: 20px;
+        }
+
+        nav ul li a {
+            color: var(--putih);
+            text-decoration: none;
+            font-weight: 600;
+            transition: color 0.3s ease; /* Animasi perubahan warna */
+        }
+
+        nav ul li a:hover {
+            color: var(--biru-muda); /* Interaktif: Berubah warna saat disentuh mouse */
+        }
+
+        /* ========================================= 3. BAGIAN HERO (PERKENALAN UTAMA)
+           ========================================= */
+        .hero {
+            background: linear-gradient(135deg, var(--biru-muda) 0%, #ffffff 100%);
+            padding: 100px 50px;
+            text-align: center;
+        }
+
+        .hero h1 {
+            font-size: 48px;
+            margin-bottom: 15px;
+        }
+
+        .hero p {
+            font-size: 18px;
+            max-width: 600px;
+            margin: 0 auto 30px auto;
+        }
+
+        .tombol {
+            background-color: var(--merah-utama);
+            color: var(--putih);
+            padding: 12px 25px;
+            text-decoration: none;
+            border-radius: 5px;
+            font-weight: bold;
+            transition: transform 0.3s ease, background-color 0.3s ease;
+            display: inline-block;
+        }
+
+        .tombol:hover {
+            background-color: #6a0400;
+            transform: translateY(-5px); /* Interaktif: Tombol terangkat sedikit */
+        }
+
+        /* =========================================
+           4. BAGIAN SLIDER FOTO (PORTOFOLIO)
+           ========================================= */
+        .portfolio-section {
+            padding: 60px 50px;
+            text-align: center;
+        }
+
+        .portfolio-section h2 {
+            font-size: 32px;
+            margin-bottom: 30px;
+        }
+
+        /* Pembungkus Slider */
+        .slider-container {
+            display: flex;
+            overflow-x: auto; /* Memungkinkan geser ke kanan/kiri */
+            scroll-snap-type: x mandatory; /* Membuat foto "menempel" rapi saat digeser */
+            gap: 20px;
+            padding-bottom: 20px;
+            /* Menyembunyikan scrollbar agar lebih rapi */
+            scrollbar-width: thin;
+            scrollbar-color: var(--merah-utama) var(--biru-muda);
+        }
+
+        /* Kartu Proyek (Slide) */
+        .slide {
+            min-width: 300px;
+            background-color: var(--putih);
+            border: 2px solid var(--biru-muda);
+            border-radius: 10px;
+            padding: 20px;
+            scroll-snap-align: center; /* Titik fokus saat digeser */
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease;
+        }
+
+        .slide:hover {
+            transform: scale(1.05); /* Interaktif: Membesar saat disentuh mouse */
+        }
+
+        .slide img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            border-radius: 5px;
+            margin-bottom: 15px;
+            background-color: #ddd; /* Warna sementara sebelum foto dimuat */
+        }
+
+        .slide h3 {
+            color: var(--teks-gelap);
+            margin-bottom: 10px;
+        }
+
+        /* =========================================
+           5. FOOTER
+           ========================================= */
+        footer {
+            background-color: var(--merah-utama);
+            color: var(--putih);
+            text-align: center;
+            padding: 20px;
+            margin-top: 40px;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Navigasi -->
+    <nav>
+        <div class="logo">a4rell</div>
+        <ul>
+            <li><a href="#beranda">Home</a></li>
+            <li><a href="#proyek">Project</a></li>
+            <li><a href="#kontak">Contact</a></li>
+        </ul>
+    </nav>
+
+    <!-- Bagian Hero -->
+    <section id="beranda" class="hero">
+        <h1>Halo, Saya Mahasiswa Sistem Informasi</h1>
+        <p>Saya memiliki minat yang kuat pada dunia jaringan komputer, infrastruktur Fiber Optic, serta berpengalaman dalam manajemen operasional e-commerce.</p>
+        <a href="#proyek" class="tombol">Lihat Proyek Saya</a>
+    </section>
+
+    <!-- Bagian Portofolio dengan Slider -->
+    <section id="proyek" class="portfolio-section">
+        <h2>Pengalaman & Project</h2>
+        
+        <div class="slider-container">
+            <!-- Slide 1 -->
+            <div class="slide">
+                <!-- Ganti link gambar di bawah dengan foto kamu -->
+                <img src="https://images.unsplash.com/photo-1544197150-b99a580bb7a8?w=500" alt="Fiber Optic">
+                <h3>Maintenance FTTH & FO</h3>
+                <p>Pengalaman praktis melakukan perawatan jaringan Fiber to the Home dan Fiber Optic di lapangan.</p>
+            </div>
+
+            <!-- Slide 2 -->
+            <div class="slide">
+                <img src="https://images.unsplash.com/photo-1558494949-ef010cbdcc31?w=500" alt="Jaringan Komputer">
+                <h3>Konfigurasi MikroTik</h3>
+                <p>Setup dan troubleshooting router RB2011 dan switch CSS326 untuk optimalisasi jaringan.</p>
+            </div>
+
+            <!-- Slide 3 -->
+            <div class="slide">
+                <img src="https://images.unsplash.com/photo-1661956602116-aa6865609028?w=500" alt="E-Commerce">
+                <h3>Manajemen E-Commerce</h3>
+                <p>Mengelola operasional toko, inventaris SKU, dan pemrosesan pesanan di platform marketplace.</p>
+            </div>
+            
+            <!-- Slide 4 -->
+            <div class="slide">
+                <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=500" alt="Data & Industri">
+                <h3>Analisis Sistem Industri</h3>
+                <p>Penerapan ilmu Teknik Industri untuk efisiensi sistem kerja dan alokasi sumber daya.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer id="kontak">
+        <p>&copy; 2026 Dibuat setelah nyoli dikamar mandi</p>
+    </footer>
+
+</body>
+</html>
